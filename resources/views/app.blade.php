@@ -22,40 +22,40 @@
 	</div>
 
 	<!-- Меню - разделы сайта -->
-	@include('layouts.components.navigation')
+	@include('components.navigation')
 
 	<!-- Body -->
 	<div class="container-fluid">
 		<div class="row">
 
 			<!-- Статус сервера -->
-			@include('layouts.components.server-status')
+			@include('components.server-status')
 
 			<!-- Блоки вывода соответствующего раздела сайта -->
 			<div class="col-sm-12 col-md-6 order-3 order-md-1 mt-3" id="bg-block">
 				<div class="tab-content" id="pills-tabContent">
 
 					<!-- Раздел - "Главная" -->
-					@include('layouts.components.news')
+					@include('components.news')
 
 					<!-- Раздел - "О сервере" -->
-					@include('layouts.components.about')
+					@include('components.about')
 
 					<!-- Раздел - "Регистрация" -->
-					@include('layouts.components.register')
+					@include('components.register')
 					<!-- Раздел - "Файлы" -->
-					@include('layouts.components.files')
+					@include('components.files')
 					<!-- Раздел - "Статистика" -->
-					@include('layouts.components.statistics')
+					@include('components.statistics')
 					<!-- Раздел - "База знаний" -->
-					@include('layouts.components.gamedb')
+					@include('components.gamedb')
 					<!-- Раздел - "Пожертвования" -->
-					@include('layouts.components.donations')
+					@include('components.donations')
 				</div>
 			</div>
 
 			<!-- Личный Кабинет -->
-			@include('layouts.components.cabinet')
+			@include('components.cabinet')
 		</div>
 	</div>
 	<!--
