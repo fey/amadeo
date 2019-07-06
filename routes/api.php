@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use App\Gamedata\Account;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +17,12 @@ use Illuminate\Http\Request;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::get('test', function (Request $request) {
+    // var_dump();
+    $gameAccs = Account::all();
+    return response()->json($gameAccs);
+    return $gameAccs->toJson();
+
 });
