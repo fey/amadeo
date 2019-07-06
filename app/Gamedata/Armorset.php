@@ -9,4 +9,5 @@ use App\GamedataModel;
  */
 class Armorset extends GamedataModel
 {
+    protected $table = 'armorsets';
 }

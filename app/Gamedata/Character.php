@@ -9,5 +9,5 @@ use App\GamedataModel;
  */
 class Character extends GamedataModel
 {
-
+    protected $table = 'characters';
 }

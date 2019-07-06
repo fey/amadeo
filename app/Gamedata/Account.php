@@ -9,4 +9,5 @@ use App\GamedataModel;
  */
 class Account extends GamedataModel
 {
+    protected $table = 'accounts';
 }

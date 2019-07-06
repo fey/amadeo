@@ -7,7 +7,7 @@ use App\GamedataModel;
 /**
  * @property string $table
  */
-class Account extends GamedataModel
+class Armor extends GamedataModel
 {
     protected $table = 'armor';
 }
