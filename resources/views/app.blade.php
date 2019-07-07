@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 
   <title>@yield('title')</title>
+  {!! htmlScriptTagJsApi() !!}
 </head>
 <body>
   <!-- Logo -->

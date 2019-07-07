@@ -57,17 +57,14 @@
             autocomplete="new-password">
         </div>
       </div>
-
       <div class="form-group row">
         <div class="col-md-7 offset-md-3">
-          <!-- добавление элемента div -->
-          <div class="text-center">
-            <div class="g-recaptcha" style="display: inline-block" data-sitekey="6KepjAsTFFFFFFMqccY0ZiGqc3TEd3YVxo8cHsGX"></div>
-            <!-- элемент для вывода ошибок -->
-            <div class="text-danger" id="recaptchaError"></div>
-            <!-- js-скрипт гугл капчи -->
-            <script src='https://www.google.com/recaptcha/api.js'></script>
-          </div>
+          {!! htmlFormSnippet() !!}
+          @error('recaptcha')
+          <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+          </span>
+          @enderror
         </div>
 
       </div>
@@ -90,7 +87,7 @@
       <div class="form-group row mb-0">
         <div class="col-md-6 offset-md-4">
           <button type="submit" class="btn btn-primary">
-            {{ __('Register') }}
+            @lang('auth.register')
           </button>
         </div>
       </div>
