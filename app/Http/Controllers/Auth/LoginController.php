@@ -45,7 +45,7 @@ class LoginController extends Controller
      */
     public function redirectToProvider()
     {
-        return Socialite::driver('github')->redirect();
+        return Socialite::driver('vkontakte')->redirect();
     }
 
     /**
@@ -55,7 +55,7 @@ class LoginController extends Controller
      */
     public function handleProviderCallback()
     {
-        $user = Socialite::driver('github')->user();
+        $user = Socialite::driver('vkontakte')->user();
         // All Providers
         dd(
             $user,
