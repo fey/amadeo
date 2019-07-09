@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 |
 */
 
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'web/accounts.php';
+
 Route::get('/', function () {
     return view('app');
 });
