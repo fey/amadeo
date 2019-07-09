@@ -22,9 +22,9 @@ class AccountManager
 
     public function createAccount(string $login, string $password): Account
     {
-        return $this->account->fillable([
+        return $this->account->fill([
             'login'    => $login,
-            'password' => $password,
+            'password' => $this->passwordEncode($password),
         ]);
     }
 

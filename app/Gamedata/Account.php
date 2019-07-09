@@ -31,12 +31,16 @@ use App\GamedataModel;
  */
 class Account extends GamedataModel
 {
+    public $timestamps = false;
+    public $incrementing = false;
+
     protected $table = 'accounts';
+    protected $primaryKey = 'login';
+
     protected $fillable = [
         'login',
         'password'
     ];
-
     protected $hidden = [
         'password',
         'accessLevel',
@@ -45,4 +49,9 @@ class Account extends GamedataModel
         'allowed_ip',
         'allowed_hwid',
     ];
+
+
+
+
+
 }

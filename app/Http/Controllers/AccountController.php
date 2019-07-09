@@ -11,10 +11,22 @@ class AccountController extends Controller
     public function store(AccountManager $accountManager, Request $request)
     {
         $accountData = $request->validate([
-            'account.login' => 'required|unique|min:6|max:45',
-            'account.password' => 'required|min:6|max:45',
+            'login' => 'required|min:6|max:45',
+            'password' => 'required|min:6|max:45|confirmed|different:login',
         ]);
+        $account = $accountManager->createAccount($request->login, $request->password);
+        $accountManager->saveAccount($account);
 
-        dd($accountData);
+        return response()->redirectTo('/');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function new()
+    {
+        return view('accounts.new');
     }
 }

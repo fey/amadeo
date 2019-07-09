@@ -6,8 +6,9 @@ Route::group(
     'middleware' => [],
     ],
     static function () {
-        Route::post('', 'AccountController@store');
-        Route::get('{account}', 'AccountController@show');
         Route::get('', 'AccountController@index');
+        Route::post('', 'AccountController@store')->name('accounts.create');
+        Route::get('new', 'AccountController@new')->name('accounts.new');
+        Route::get('{account}', 'AccountController@show');
     }
 );
