@@ -63,7 +63,7 @@ return [
             'database' => env('WEBDB_DATABASE', 'forge'),
             'username' => env('WEBDB_USERNAME', 'forge'),
             'password' => env('WEBDB_PASSWORD', ''),
-            'charset' => 'utf8',
+            'charset' => 'utf8_unicode_ci',
             'prefix' => '',
             'prefix_indexes' => true,
             'schema' => 'public',
