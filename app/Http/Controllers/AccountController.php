@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Services\AccountManager;
 use Illuminate\Http\Request;
+use App\Gamedata\Account;
 
 class AccountController extends Controller
 {
@@ -28,5 +29,11 @@ class AccountController extends Controller
     public function new()
     {
         return view('accounts.new');
+    }
+
+    public function index()
+    {
+        $accounts = Account::all();
+        dd($accounts->toArray());
     }
 }

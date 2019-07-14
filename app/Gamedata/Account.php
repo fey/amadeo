@@ -50,8 +50,10 @@ class Account extends GamedataModel
         'allowed_hwid',
     ];
 
-
-
-
-
+    protected $casts = [
+    'lastactive' => 'datetime: Y-m-d h:m'];
+    protected $dates = [
+        'lastactive'
+    ];
+    protected $dateFormat = 'U';
 }

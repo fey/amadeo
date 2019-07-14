@@ -29,3 +29,6 @@ Route::get('login/vkontakte', 'Auth\LoginController@redirectToProvider');
 Route::get('login/vkontakte/callback', 'Auth\LoginController@handleProviderCallback');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/profile', 'UserController@profile');
+    /* ->middleware('verified'); */
