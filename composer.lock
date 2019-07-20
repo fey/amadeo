@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "be98491c35e7d7f9796aaa9df05902ed",
+    "content-hash": "51d80d9acab77de904aff59b831205ac",
     "packages": [
         {
             "name": "biscolab/laravel-recaptcha",
