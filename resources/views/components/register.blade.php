@@ -60,8 +60,8 @@
       <div class="form-group row">
         <div class="col-md-7 offset-md-3">
           {!! htmlFormSnippet() !!}
-          @error('recaptcha')
-          <span class="invalid-feedback" role="alert">
+          @error('g-recaptcha-response')
+          <span class="invalid-feedback d-block" role="alert">
             <strong>{{ $message }}</strong>
           </span>
           @enderror
@@ -71,17 +71,18 @@
       <div class="form-group row md-0">
             <div class="form-check col-md-6 offset-md-4">
               <input class="form-check-input" type="checkbox" id="gridCheck">
-              <label class="form-check-label" for="gridCheck">
-                - подписаться на рассылку новостей портала Amadeo.
-              </label>
+              <label class="form-check-label" for="gridCheck">- подписаться на рассылку новостей портала Amadeo.</label>
             </div>
           </div>
-          <div class="form-group row md-0">
+          <div class="form-group row">
             <div class="form-check col-md-6 offset-md-4">
-              <input class="form-check-input" type="checkbox" id="gridCheck">
-              <label class="form-check-label" for="gridCheck">
-                - согласен(а) с правилами сервера.
-              </label>
+              <input name="tos" class="form-check-input @error('tos') is-invalid @enderror" type="checkbox" id="tos">
+              <label class="form-check-label" for="tos">- согласен(а) с правилами сервера.</label>
+              @error('tos')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+              @enderror
             </div>
           </div>
       <div class="form-group row mb-0">

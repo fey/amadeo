@@ -1,47 +1,39 @@
 <!doctype html>
-<html lang="ru">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <!-- CSRF Token -->
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
+  <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+  {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> --}}
   <!-- CSS -->
-  <link rel="stylesheet" type="text/css" href="css/main.css">
-
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
   <!-- font-awesome -->
-  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-
-  <title>@yield('title')</title>
+  <link rel="stylesheet" href="{{ asset('font-awesome/css/font-awesome.min.css') }}">
+  <title>{{ config('app.name', 'Laravel') }}</title>
   {!! htmlScriptTagJsApi() !!}
 </head>
 <body>
   <!-- Logo -->
   <div id="head_bg">
   </div>
-
   <!-- Меню - разделы сайта -->
   @include('components.navigation')
-
   <!-- Body -->
   <div class="container-fluid">
     <div class="row">
-
       <!-- Статус сервера -->
       @include('components.server-status')
-
       <!-- Блоки вывода соответствующего раздела сайта -->
       <div class="col-sm-12 col-md-6 order-3 order-md-1 mt-3" id="bg-block">
         <div class="tab-content" id="pills-tabContent">
-
           <!-- Раздел - "Главная" -->
           @include('components.news')
-
           <!-- Раздел - "О сервере" -->
           @include('components.about')
-
           <!-- Раздел - "Регистрация" -->
           @include('components.register')
           <!-- Раздел - "Файлы" -->
@@ -54,7 +46,6 @@
           @include('components.donations')
         </div>
       </div>
-
       <!-- Личный Кабинет -->
       @include('components.cabinet')
     </div>
