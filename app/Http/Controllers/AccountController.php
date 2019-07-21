@@ -28,12 +28,14 @@ class AccountController extends Controller
      */
     public function new()
     {
+        $this->user();
         return view('accounts.new');
     }
 
     public function index()
     {
         $accounts = Account::all();
-        dd($accounts->toArray());
+        dump($accounts->toArray());
+        return $accounts->toJson();
     }
 }

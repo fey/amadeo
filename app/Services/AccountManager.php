@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Gamedata\Account;
+use DomainException;
 
 class AccountManager
 {
@@ -22,14 +23,18 @@ class AccountManager
 
     public function createAccount(string $login, string $password): Account
     {
-        return $this->account->fill([
-            'login'    => $login,
-            'password' => $this->passwordEncode($password),
-        ]);
+        $account = new Account();
+        $account->login = $login;
+        $account->password = $this->passwordEncode($password);
+
+        return $account;
     }
 
-    public function saveAccount(Account $account): bool
+
+    public function saveAccount(Account $account)
     {
-        return $account->saveOrFail();
+        if ($account->save()) {
+            throw new DomainException('Could not save account');
+        }
     }
 }
