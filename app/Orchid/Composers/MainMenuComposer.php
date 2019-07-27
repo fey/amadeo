@@ -38,57 +38,57 @@ class MainMenuComposer
             ->route('platform.accounts')
             // ->title('Accountss')
         );
-        $this->dashboard->menu
-        ->add(
-            Menu::MAIN,
-            ItemMenu::label('Email sender')
-            ->icon('icon-envelope-letter')
-            ->route('platform.email')
-            ->title('Tools')
-        );
+        // $this->dashboard->menu
+        // ->add(
+        //     Menu::MAIN,
+        //     ItemMenu::label('Email sender')
+        //     ->icon('icon-envelope-letter')
+        //     ->route('platform.email')
+        //     ->title('Tools')
+        // );
         // Profile
-        $this->dashboard->menu
-            ->add(
-                Menu::PROFILE,
-                ItemMenu::label('Empty 1')
-                    ->icon('icon-compass')
-            )
-            ->add(
-                Menu::PROFILE,
-                ItemMenu::label('Empty 2')
-                    ->icon('icon-heart')
-                    ->badge(function () {
-                        return 6;
-                    })
-            );
+        // $this->dashboard->menu
+        //     ->add(
+        //         Menu::PROFILE,
+        //         ItemMenu::label('Empty 1')
+        //             ->icon('icon-compass')
+        //     )
+        //     ->add(
+        //         Menu::PROFILE,
+        //         ItemMenu::label('Empty 2')
+        //             ->icon('icon-heart')
+        //             ->badge(function () {
+        //                 return 6;
+        //             })
+        //     );
 
         // Main
 
-        $this->dashboard->menu
-            ->add(
-                Menu::MAIN,
-                ItemMenu::label('Example')
-                    ->icon('icon-folder')
-                    ->route('platform.example')
-                    ->title('Example boilerplate')
-            )
-            ->add(
-                Menu::MAIN,
-                ItemMenu::label('Empty menu')
-                    ->slug('example-menu')
-                    ->icon('icon-code')
-                    ->childs()
-            )
-            ->add(
-                'example-menu',
-                ItemMenu::label('Empty sub item 1')
-                    ->icon('icon-bag')
-            )
-            ->add(
-                'example-menu',
-                ItemMenu::label('Empty sub item 2')
-                    ->icon('icon-heart')
-                    ->title('Separate')
-            );
+        // $this->dashboard->menu
+        //     ->add(
+        //         Menu::MAIN,
+        //         ItemMenu::label('Example')
+        //             ->icon('icon-folder')
+        //             ->route('platform.example')
+        //             ->title('Example boilerplate')
+        //     )
+        //     ->add(
+        //         Menu::MAIN,
+        //         ItemMenu::label('Empty menu')
+        //             ->slug('example-menu')
+        //             ->icon('icon-code')
+        //             ->childs()
+        //     )
+        //     ->add(
+        //         'example-menu',
+        //         ItemMenu::label('Empty sub item 1')
+        //             ->icon('icon-bag')
+        //     )
+        //     ->add(
+        //         'example-menu',
+        //         ItemMenu::label('Empty sub item 2')
+        //             ->icon('icon-heart')
+        //             ->title('Separate')
+        //     );
     }
 }

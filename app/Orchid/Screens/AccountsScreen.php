@@ -40,7 +40,7 @@ class AccountsScreen extends Screen
     public function query(): array
     {
         return [
-            'accounts' => Account::all(),
+            'accounts' => Account::paginate(5),
         ];
     }
 
