@@ -8,6 +8,8 @@ use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
 use App\Orchid\Screens\User\UserEditScreen;
 use App\Orchid\Screens\User\UserListScreen;
+use App\Orchid\Screens\AccountsScreen;
+use App\Orchid\Screens\EmailSenderScreen;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,5 +35,7 @@ $this->router->screen('roles/create', RoleEditScreen::class)->name('platform.sys
 $this->router->screen('roles', RoleListScreen::class)->name('platform.systems.roles');
 
 // Example...
+$this->router->screen('email', EmailSenderScreen::class)->name('platform.email');
 $this->router->screen('example', ExampleScreen::class)->name('platform.example');
-//Route::screen('/dashboard/screen/idea', 'Idea::class','platform.screens.idea');
+$this->router->screen('accounts', AccountsScreen::class)->name('platform.accounts');
+// Route::screen('/dashboard/screen/idea', 'Idea::class','platform.screens.idea');

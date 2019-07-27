@@ -6,19 +6,19 @@ use App\Http\Controllers\Controller;
 use App\Services\AccountManager;
 use Illuminate\Http\Request;
 use App\Gamedata\Account;
+use App\Http\Requests\Accounts\CreateAccountRequest;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class AccountController extends Controller
 {
-    public function store(AccountManager $accountManager, Request $request)
+    public function store(CreateAccountRequest $request, AccountManager $accountManager)
     {
-        $accountData = $request->validate([
-            'login' => 'required|min:6|max:45',
-            'password' => 'required|min:6|max:45|confirmed|different:login',
-        ]);
-        $account = $accountManager->createAccount($request->login, $request->password);
-        $accountManager->saveAccount($account);
+        $accountManager->createAccount(
+            $request->login,
+            $request->password
+        );
 
-        return response()->redirectTo('/');
+        return back();
     }
 
     /**
@@ -37,5 +37,10 @@ class AccountController extends Controller
         $accounts = Account::all();
         dump($accounts->toArray());
         return $accounts->toJson();
+    }
+
+    public function show()
+    {
+        throw new NotFoundHttpException();
     }
 }

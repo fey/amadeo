@@ -41,3 +41,8 @@ Breadcrumbs::for('platform.example', function ($trail) {
     $trail->parent('platform.index');
     $trail->push(__('Example'));
 });
+
+Breadcrumbs::for('platform.email', function ($trail) {
+    $trail->parent('platform.index');
+    $trail->push('Email sender');
+});

@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Gamedata\Account;
 use DomainException;
+use Illuminate\Database\QueryException;
 
 class AccountManager
 {
@@ -26,6 +27,7 @@ class AccountManager
         $account = new Account();
         $account->login = $login;
         $account->password = $this->passwordEncode($password);
+        $this->saveAccount($account);
 
         return $account;
     }
@@ -33,8 +35,14 @@ class AccountManager
 
     public function saveAccount(Account $account)
     {
-        if ($account->save()) {
-            throw new DomainException('Could not save account');
+        try {
+            if (! $account->save()) {
+                throw new DomainException('Could not save account');
+            }
+        } catch (QueryException $e) {
+            if ($e->errorInfo[1] == 1062) {
+                throw new DomainException('account name is busy');
+            }
         }
     }
 }
