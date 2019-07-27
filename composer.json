@@ -11,6 +11,7 @@
         "laravel/socialite": "^4.1",
         "laravel/telescope": "^2.0",
         "laravel/tinker": "^1.0",
+        "orchid/platform": "^5.3",
         "socialiteproviders/vkontakte": "^4.0"
     },
     "require-dev": {
