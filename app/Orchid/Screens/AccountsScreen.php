@@ -40,7 +40,7 @@ class AccountsScreen extends Screen
     public function query(): array
     {
         return [
-            'accounts' => Account::paginate(5),
+            'accounts' => Account::paginate(10),
         ];
     }
 
@@ -54,7 +54,7 @@ class AccountsScreen extends Screen
         return [
             Link::name('Create new Account')
                 ->icon('icon-plus')
-                ->method('createAccount')
+                ->modal('createAccountModal')
         ];
     }
 
@@ -66,9 +66,8 @@ class AccountsScreen extends Screen
     public function layout(): array
     {
         return [
-            Layout::tabs([
-                'Accounts'       => AccountsLayout::class,
-                'Create Account' => Layout::rows([
+            Layout::modal('createAccountModal', [
+                Layout::rows([
                     Input::make('login')
                         ->type('text')
                         ->max(45)
@@ -88,7 +87,9 @@ class AccountsScreen extends Screen
                         ->title('password_confirmation')
                         ->help('password_confirmation'),
                 ]),
-            ])
+            ]),
+            AccountsLayout::class,
+
         ];
     }
 
