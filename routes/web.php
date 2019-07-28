@@ -1,5 +1,5 @@
 <?php
-use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,16 +19,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('login/google', 'Auth\LoginController@redirectToProvider');
-Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback');
-
-Route::get('login/github', 'Auth\LoginController@redirectToProvider');
-Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback');
-
-Route::get('login/vkontakte', 'Auth\LoginController@redirectToProvider');
-Route::get('login/vkontakte/callback', 'Auth\LoginController@handleProviderCallback');
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/profile', 'UserController@profile');
     /* ->middleware('verified'); */
+
+
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'socialite.php';
