@@ -47,7 +47,9 @@
         </div>
       </div>
       <!-- Личный Кабинет -->
-      @include('components.cabinet')
+      <div class="col-sm-6 col-md-3 col-lg-2 order-1 order-md-2 pt-3">
+          @include('components.cabinet')
+      </div>
     </div>
   </div>
   <!--

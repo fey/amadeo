@@ -14,7 +14,7 @@
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'web/accounts.php';
 
 Route::get('/', function () {
-    return view('app');
+    return view('app', ['user' => auth()->user()]);
 });
 
 Auth::routes();
