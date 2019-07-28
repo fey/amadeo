@@ -1,18 +1,16 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Accounts;
 
 use App\Gamedata\Account;
 use DomainException;
 use Illuminate\Database\QueryException;
+use App\User;
+use App\Services\Accounts\AccountsUserPivot;
+use Illuminate\Database\Eloquent\Builder;
 
 class AccountManager
 {
-    private $account;
-    public function __construct(Account $account)
-    {
-        $this->account = $account;
-    }
     public function passwordEncode($pass, $type = "sha1")
     {
         if ($type == "wirlpool") {
@@ -44,5 +42,12 @@ class AccountManager
                 throw new DomainException('account name is busy');
             }
         }
+    }
+
+    public function getUserAccounts(User $user): Builder
+    {
+        $pivotLogins = AccountsUserPivot::whereUserId($user->id)->get();
+        $accounts = Account::whereIn('login', $pivotLogins->pluck('login'));
+        return $accounts;
     }
 }

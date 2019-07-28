@@ -34,9 +34,9 @@ class Account extends GamedataModel
     public $timestamps = false;
     public $incrementing = false;
 
+    protected $connection = 'gamedb';
     protected $table = 'accounts';
     protected $primaryKey = 'login';
-
     protected $fillable = [
         'login',
         'password'
@@ -49,9 +49,9 @@ class Account extends GamedataModel
         'allowed_ip',
         'allowed_hwid',
     ];
-
     protected $casts = [
-    'lastactive' => 'datetime: Y-m-d h:m'];
+        'lastactive' => 'datetime: Y-m-d h:m'
+    ];
     protected $dates = [
         'lastactive'
     ];

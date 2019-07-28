@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Services\AccountManager;
+use App\Services\Accounts\AccountManager;
 use Illuminate\Http\Request;
 use App\Gamedata\Account;
 use App\Http\Requests\Accounts\CreateAccountRequest;

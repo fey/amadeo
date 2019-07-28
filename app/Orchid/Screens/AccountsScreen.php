@@ -7,7 +7,7 @@ use Alert;
 use App\Gamedata\Account;
 use App\Http\Requests\Accounts\CreateAccountRequest;
 use App\Orchid\Layouts\AccountsLayout;
-use App\Services\AccountManager;
+use App\Services\Accounts\AccountManager;
 use Orchid\Screen\AsSource;
 use Orchid\Screen\Fields\Button;
 use Orchid\Screen\Fields\Input;
